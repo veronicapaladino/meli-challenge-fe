@@ -51,6 +51,7 @@ import fetchGetItems from '../../api/search-item';
           <button type="submit" className="search-button">
             <img
               className="search-icon"
+              src="https://icongr.am/feather/search.svg?size=20&color=#666"
             />
           </button>
         </form>
