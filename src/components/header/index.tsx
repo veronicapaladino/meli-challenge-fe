@@ -1,15 +1,29 @@
-import { useState, } from 'react';
-import { useNavigate } from "react-router-dom";
 import React from 'react';
+import { useState, } from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
+import fetchGetItems from '../../api/search-item';
 
-
-export const Header = (): JSX.Element => {
+ const Header = (): JSX.Element => {
   const [input, setInput] = useState('');
   const navigate = useNavigate();
+  const location  = useLocation();
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(e.target.value[0] !== ' '){
       setInput(e.target.value);
+    }
+  }
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setInput(input.trim());
+
+    if(input.length >= 1){
+        fetchGetItems(input).then((res) => {
+            navigate(`/items?search=${input}`)
+      }).catch((error) => {
+        console.log(error);
+      })
     }
   }
 
@@ -26,7 +40,7 @@ export const Header = (): JSX.Element => {
           onClick={goHome}
           className="logo-img"
         />
-        <form className="header__input-container">
+        <form className="header__input-container" onSubmit={handleSearch} >
           <input
             type="text"
             className="header__input-header"
@@ -44,3 +58,5 @@ export const Header = (): JSX.Element => {
     </div>
     )
 }
+
+export default Header;
