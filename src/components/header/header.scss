@@ -1,0 +1,59 @@
+.header {
+    background-color: $primary-color;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        background-color: $primary-color;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1024px;
+        margin: 0 10px;
+    }
+
+    &__input {
+    
+        &-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        
+            .search-button {
+                background-color: $backgrond-color;
+                width: 40px;
+                height: 30px;
+                padding: 0 5px;
+                border: 0;
+            }
+        
+            .search-icon {
+                width: 20px;
+            }
+        }
+
+        &-header {
+            height: 30px;
+            border: 0;
+            padding: 0 10px;
+            width: 100%;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.logo-img {
+    margin-right: 10px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.search-button {
+    &:hover {
+        cursor: pointer;
+    }
+}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import React from 'react';
 
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
   const [input, setInput] = useState('');
   const navigate = useNavigate();
   
@@ -19,17 +19,17 @@ export const Header = () => {
   }
 
   return (
-    <div className="header-container">
-      <div className="header">
+    <div className="header">
+      <div className="header__container">
         <img
           src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.16.1/mercadolibre/logo__large_plus.png"
           onClick={goHome}
           className="logo-img"
         />
-        <form className="input-container">
+        <form className="header__input-container">
           <input
             type="text"
-            className="input-header"
+            className="header__input-header"
             placeholder="Nunca dejes de buscar"
             onChange={e => handleInputChange(e)}
             value={input}
