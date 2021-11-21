@@ -9,6 +9,7 @@ import {
 import fetchGetItems from "../../api/search-item";
 import Categories from "../categories";
 import BuyBox from "./buybox";
+import Description from "./description";
 import Pictures from "./pictures";
 
 const ItemDetail = (): JSX.Element => {
@@ -42,8 +43,8 @@ const ItemDetail = (): JSX.Element => {
       );
 
       // obtenemos la descripción del item
-      fetchItemDetailDescription(parseString.toString()).then((res: any) =>
-        setDescription(res.data)
+      fetchItemDetailDescription(parseString.toString()).then((res: any) => 
+        setDescription(res.data.plain_text)
       );
     }
   }, []);
@@ -66,6 +67,7 @@ const ItemDetail = (): JSX.Element => {
               </Stack>
               <BuyBox item={item} />
             </Stack>
+            <Description description={description} />
           </Stack>
         </Box>
       )}
