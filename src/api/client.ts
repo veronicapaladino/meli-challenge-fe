@@ -7,5 +7,5 @@ export const axiosClient: AxiosInstance = axios.create({
 });
 
 export const axiosClientDetail: AxiosInstance = axios.create({
-    baseURL: `${basePath}/items/`
+    baseURL: `${basePath}/items`
 });

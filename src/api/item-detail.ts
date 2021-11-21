@@ -1,7 +1,8 @@
 import { axiosClientDetail } from "./client";
 
 const fetchItemDetail = (itemId: string) => {
-  return axiosClientDetail.get(itemId);
+    console.log('itemId', itemId);
+  return axiosClientDetail.get(`${itemId}`);
 }
 
 const fetchItemDetailDescription = (itemId: string) => {

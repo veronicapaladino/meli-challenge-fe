@@ -32,5 +32,11 @@ declare module "items-types" {
         currency: string;
         amount:   number | string;
         decimals: number | string;
+        style: string;
+    }
+
+    interface IItemDetail extends IItem {
+        sold_quantity: number;
+        pictures: any[];
     }
 }
