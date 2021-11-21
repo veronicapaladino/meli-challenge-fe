@@ -1,11 +1,5 @@
 import React from "react"
 
-const Home = () => {
-    return (
-        <>
-            <h2>Pagina principal</h2>
-        </>
-    )
-}
+const Home = () => <h2 className="home">Challenge de FE de Mercado Libre</h2>
 
 export default Home;
