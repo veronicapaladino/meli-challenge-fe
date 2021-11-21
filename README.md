@@ -1,4 +1,4 @@
-# typescript-template-app
+# typescript-template-app (WIP)
 
 
 Template para crear una app con Typescript, React, Sass, Webpack, Babel, Jest. Tiene como objetivo usar este proyecto como template para crear proyectos con React.
