@@ -3,12 +3,6 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Item = ({id, picture, title, price, seller_address}: IItem) => {
-    console.log('Entroooo');
-    console.log('id', id);
-    console.log('picture', picture);
-    console.log('title', title);
-    console.log('price', price);
-    console.log('seller_address', seller_address);
     const navigate = useNavigate();
 
     const handleClick = () => {
