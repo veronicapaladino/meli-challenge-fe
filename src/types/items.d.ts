@@ -9,6 +9,11 @@ declare module "items-types" {
         name:     string;
         lastname: string;
     }
+
+    interface IShipping {
+        free_shipping: boolean;
+        mode: string;
+    }
     
     interface IItem {
         id:           string;
@@ -18,6 +23,9 @@ declare module "items-types" {
         condition:    string;
         free_shipping: boolean;
         seller_address: string;
+        thumbnail: string;
+        currency_id: string;
+        shipping: IShipping;
     }
     
     interface Price {

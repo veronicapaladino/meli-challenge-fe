@@ -1,24 +1,28 @@
 import React from 'react';
+import { Spinner } from "@chakra-ui/spinner"
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { IItem } from 'items-types';
 import fetchGetItems from '../../api/search-item';
 import Item from '../item';
-import { Spinner } from "@chakra-ui/spinner"
 import Categories from '../categories';
+import EmptyState from '../empty-state';
 
 
 const ItemsList = () => {
+    const [items, setItems] = useState<IItem[]>([])
+    const [categories, setCategories] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const location = useLocation();
     const searchParam = new URLSearchParams(location.search);
-    const [items, setItems] = useState<IItem[]>()
-    const [categories, setCategories] = useState([])
 
     useEffect(() => {
         if (!location.state ) {
+            setIsLoading(true);
             fetchGetItems(searchParam.toString()).then((res: any) => {
                 if (res.data.filters[0]?.values) setCategories(res.data.filters[0].values)
                 setItems(res.data.results);
+                setIsLoading(false);
             })
         } else {
             setItems(location.state);
@@ -26,7 +30,7 @@ const ItemsList = () => {
     }, [location.state]);
         
     return (
-        items
+        !isLoading
         ? <>
             <div className="items">
                 <div className="items-container">
@@ -35,7 +39,7 @@ const ItemsList = () => {
                         items.length ? items.map((item: IItem) => {
                             return <Item {...item} key={item.id}/>
                         })
-                        : <div>No hay resultados</div>
+                        : <EmptyState />
                     }
                 </div>
             </div>
