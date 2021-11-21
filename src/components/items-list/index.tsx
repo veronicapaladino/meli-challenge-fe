@@ -16,14 +16,11 @@ const ItemsList = () => {
 
     useEffect(() => {
         if (!location.state ) {
-            console.log('Entra 1');
             fetchGetItems(searchParam.toString()).then((res: any) => {
-                console.log('res.data.filters', res.data);
                 if (res.data.filters[0]?.values) setCategories(res.data.filters[0].values)
                 setItems(res.data.results);
             })
         } else {
-            console.log('Entra 2')
             setItems(location.state);
         };
     }, [location.state]);

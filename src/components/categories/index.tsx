@@ -8,13 +8,12 @@ interface ICategoriesComponent {
 }
 
 const Categories = ({ categories }: ICategoriesComponent) => {
-    console.log('categories', categories);
     return (
          categories.length > 0 ? <div className="categories-container">
             {
                 categories[0].path_from_root.map(({ name }) => {
                     return (
-                        <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
+                        <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />} key={name}>
                             <BreadcrumbItem>
                                 <BreadcrumbLink >{name}</BreadcrumbLink>
                             </BreadcrumbItem>
