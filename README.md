@@ -10,7 +10,7 @@ Desafío de FE de Mercado Libre con: React, Sass, Webpack, Babel, Jest.
 ## Start
 
 ```
-# Utilizamos version de node del proyecto
+# Set node enviorment
 nvm use
 
 # Install dependencies
