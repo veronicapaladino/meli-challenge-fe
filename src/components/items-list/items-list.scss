@@ -1,0 +1,10 @@
+.items {
+    display: flex;
+    justify-content: center;
+
+    &-container {
+        width: 1024px;
+        margin: 0 10px;
+    }
+}
+

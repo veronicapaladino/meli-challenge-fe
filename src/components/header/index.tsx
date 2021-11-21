@@ -1,12 +1,11 @@
 import React from 'react';
 import { useState, } from 'react';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import fetchGetItems from '../../api/search-item';
 
  const Header = (): JSX.Element => {
   const [input, setInput] = useState('');
   const navigate = useNavigate();
-  const location  = useLocation();
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(e.target.value[0] !== ' '){
@@ -20,7 +19,7 @@ import fetchGetItems from '../../api/search-item';
 
     if(input.length >= 1){
         fetchGetItems(input).then((res) => {
-            navigate(`/items?search=${input}`)
+        navigate(`/items?search=${input}`)
       }).catch((error) => {
         console.log(error);
       })

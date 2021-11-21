@@ -1,0 +1,44 @@
+.product-container {
+    display: flex;
+    background-color: white;
+    margin-bottom: 5px;
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.item-image-container {
+    width: 160px;
+    img {
+        width: 160px;
+        height: 160px;
+        object-fit: contain;
+    }
+}
+
+.title-container {
+    padding: 1em 8em 0 2em;
+    width: 65%;
+
+    .item-price {
+        display: flex;
+
+        .item-amount {
+            font-size: 25px;
+        }
+        .item-decimals {
+            font-size: 16px;
+        }
+    }
+    
+}
+
+.seller-address-container {
+    width: 25%;
+    
+    .seller-address {
+        margin-top: 2em;
+    }
+}
