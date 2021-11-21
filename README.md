@@ -1,9 +1,9 @@
-# typescript-template-app
+# meli-challenge-fe (WIP)
 
 
-Template para crear una app con Typescript, React, Sass, Webpack, Babel, Jest. Tiene como objetivo usar este proyecto como template para crear proyectos con React.
+Desafío de FE de Mercado Libre con: React, Sass, Webpack, Babel, Jest. 
 
-Configuración con webpack 5 y Babel 7. Eslint(WIP)
+
 
 ## Start
 
