@@ -19,6 +19,8 @@ npm install
 # Build Project
 npm run build
 
+Correr en 2 terminales al mismo tiempo:
+
 # Build Estilos
 npm run watch
 
