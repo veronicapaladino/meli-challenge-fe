@@ -10,7 +10,7 @@ Desafío de FE de Mercado Libre con: React, Sass, Webpack, Babel, Jest.
 ## Start
 
 ```
-# Utilizamos version de node del proyecto
+# Set node enviorment
 nvm use
 
 # Install dependencies
@@ -18,6 +18,8 @@ npm install
 
 # Build Project
 npm run build
+
+Correr en 2 terminales al mismo tiempo:
 
 # Build Estilos
 npm run watch
