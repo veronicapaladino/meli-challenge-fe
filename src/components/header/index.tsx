@@ -5,8 +5,9 @@ import fetchGetItems from '../../api/search-item';
 
  const Header = (): JSX.Element => {
   const [input, setInput] = useState('');
+  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(e.target.value[0] !== ' '){
       setInput(e.target.value);
@@ -18,8 +19,11 @@ import fetchGetItems from '../../api/search-item';
     setInput(input.trim());
 
     if(input.length >= 1){
-        fetchGetItems(input).then((res) => {
-        navigate(`/items?search=${input}`)
+        fetchGetItems(input).then((res: any) => {
+          if (res.data.filters[0]?.values) {
+            setCategories(res.data.filters[0].values);
+            navigate({pathname: `/items?search=${input}`}, { state: { categories: res.data.filters[0].values }});
+          }
       }).catch((error) => {
         console.log(error);
       })
@@ -27,8 +31,9 @@ import fetchGetItems from '../../api/search-item';
   }
 
   const goHome = () => {
+    setCategories([])
     setInput('');
-    navigate('/')
+    navigate('/');
   }
 
   return (

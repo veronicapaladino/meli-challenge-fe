@@ -17,20 +17,19 @@ const ItemDetail = (): JSX.Element => {
   const [item, setItem] = useState<IItemDetail>();
   const [description, setDescription] = useState<IItemDetail>();
   const [isLoading, setIsLoading] = useState(false);
-  const location = useLocation();
+  const {state} = useLocation();
   const [selectedImage, setSelectedImage] = useState('');
   const pathname = location.pathname;
 
   useEffect(() => {
-    if (!location.state) {
       setIsLoading(true);
       const position = pathname.indexOf("/", 2);
       const parseString = pathname.substring(position);
 
+      if (state?.categories) setCategories(state.categories);
+
       // obtenemos las categorias
       fetchGetItems(parseString.toString()).then((res: any) => {
-        if (res.data.filters[0]?.values)
-          setCategories(res.data.filters[0].values);
         setIsLoading(false);
       });
 
@@ -46,12 +45,11 @@ const ItemDetail = (): JSX.Element => {
       fetchItemDetailDescription(parseString.toString()).then((res: any) => 
         setDescription(res.data.plain_text)
       );
-    }
   }, []);
 
   return (
     <>
-      <Categories categories={categories} />
+      {!!categories.length && <Categories categories={categories} />}
       {item && (
         <Box paddingX={32} paddingY={8} width="90%">
           <Stack background="white" padding={4}>

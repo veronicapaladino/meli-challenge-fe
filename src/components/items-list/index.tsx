@@ -13,21 +13,17 @@ const ItemsList = () => {
     const [items, setItems] = useState<IItem[]>([])
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const location = useLocation();
+    const { state} = useLocation();
     const searchParam = new URLSearchParams(location.search);
 
     useEffect(() => {
-        if (!location.state ) {
-            setIsLoading(true);
-            fetchGetItems(searchParam.toString()).then((res: any) => {
-                if (res.data.filters[0]?.values) setCategories(res.data.filters[0].values)
-                setItems(res.data.results);
-                setIsLoading(false);
-            })
-        } else {
-            setItems(location.state);
-        };
-    }, [location.state]);
+        setIsLoading(true);
+        fetchGetItems(searchParam.toString()).then((res: any) => {
+            if (res.data.filters[0]?.values) setCategories(res.data.filters[0].values)
+            setItems(res.data.results);
+            setIsLoading(false);
+        })
+    }, []);
         
     return (
         !isLoading
