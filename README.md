@@ -1,4 +1,4 @@
-# meli-challenge-fe (WIP)
+# meli-challenge-fe
 
 
 Desafío de FE de Mercado Libre con: React, Sass, Webpack, Babel, Jest. 
