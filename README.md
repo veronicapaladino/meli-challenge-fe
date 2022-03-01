@@ -3,7 +3,7 @@
 
 Desafío de FE de Mercado Libre con: React, Sass, Webpack, Babel, Jest. 
 
-[URL pública](https://quizzical-edison-0d2306.netlify.app/)
+[Demo](https://quizzical-edison-0d2306.netlify.app/)
 
 
 
